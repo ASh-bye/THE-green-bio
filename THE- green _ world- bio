@@ -1,0 +1,61 @@
+import React from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Leaf } from "lucide-react";
+
+const blogPosts = [
+  {
+    title: "The Power of Hebes: Why This Plant Belongs in Your Garden",
+    date: "April 10, 2025",
+    excerpt: "Hebes are more than just pretty plants — they're drought-tolerant, pollinator-friendly, and perfect for organic gardens.",
+    image: "https://source.unsplash.com/featured/?hebe,plant",
+  },
+  {
+    title: "5 Organic Gardening Tips for Spring",
+    date: "March 25, 2025",
+    excerpt: "Spring is here! Let’s talk about composting, companion planting, and using natural pest control.",
+    image: "https://source.unsplash.com/featured/?organic,gardening",
+  },
+  {
+    title: "How to Make Herbal Teas from Your Garden",
+    date: "March 12, 2025",
+    excerpt: "Learn how to brew soothing herbal teas from common plants you can grow, including hebes, mint, and lemon balm.",
+    image: "https://source.unsplash.com/featured/?herbs,tea",
+  },
+];
+
+export default function OrganicHebesBlog() {
+  return (
+    <div className="min-h-screen bg-green-50 text-green-900 font-sans">
+      <header className="bg-green-100 py-12 px-6 text-center">
+        <div className="max-w-2xl mx-auto">
+          <h1 className="text-4xl font-bold mb-2">Organic Hebes Blog</h1>
+          <p className="text-lg">Your source for natural gardening wisdom, inspired by the beauty and resilience of hebes.</p>
+        </div>
+      </header>
+
+      <main className="max-w-5xl mx-auto p-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {blogPosts.map((post, idx) => (
+          <Card key={idx} className="rounded-2xl overflow-hidden shadow-md bg-white">
+            <img src={post.image} alt={post.title} className="w-full h-48 object-cover" />
+            <CardContent className="p-4">
+              <p className="text-sm text-green-600 mb-1">{post.date}</p>
+              <h2 className="text-xl font-semibold mb-2">{post.title}</h2>
+              <p className="text-sm mb-4">{post.excerpt}</p>
+              <Button variant="outline" className="text-green-700 border-green-500 hover:bg-green-100">
+                Read More
+              </Button>
+            </CardContent>
+          </Card>
+        ))}
+      </main>
+
+      <footer className="mt-12 py-6 text-center text-sm text-green-700 border-t border-green-200">
+        <div className="flex justify-center items-center gap-2">
+          <Leaf size={16} />
+          <span>© 2025 Organic Hebes. Grown with love.</span>
+        </div>
+      </footer>
+    </div>
+  );
+}
